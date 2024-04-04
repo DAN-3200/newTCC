@@ -1,0 +1,185 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700;900&display=swap');
+
+:root{
+    --color-primary: #96ba93;
+    --color-secundary:  #567356;
+    --color-danger: #ff7782;
+    --color-success: #41f1b6;
+    --color-warning: #ffbb55;
+
+
+    --color-background: #181a1e;
+    --color-white: #212124;
+    --color-dark: #edeffd;
+    --color-dark-variant:#a3bdcc;
+    --color-light: rgba(0, 0, 0, 0.7);
+    --box-shadow: 0 2rem 3rem var(--color-light);
+    --color-text: #fff;
+
+    --card-border-radius: 2rem;
+    --border-radius-1: 0.4rem;
+    --border-radius-2: 0.8rem;
+    --border-radius-3: 1.2rem;
+
+    --card-padding: 1.8rem;
+    --padding-1: 1.2rem;
+
+    --box-shadow: 0 2rem 3rem var(--color-light);
+}
+
+.dark-theme-variables{
+    --color-background: #e7e7e7;
+    --color-white: #fff;
+    --color-text: #2c2c2c;
+    --color-light: rgba(132, 139, 200, 0.5);
+}
+
+main{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.dashboard{
+    width: 1200px;
+    height: 600px;
+
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    grid-gap: 10px;
+
+
+    justify-content: center;
+    align-content: center;
+    justify-items: center;
+    align-items: center;
+}
+
+main .boxs-grid{
+    width: 100%;
+    height: 100%;
+    border-radius: 5px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px, rgb(51, 51, 51) 0px 0px 0px 3px;
+}
+
+/* --- profile */
+main .welcome{
+    background-color: rgb(255, 255, 255);
+    grid-area: 1 / 1 / 2 / 4;
+    display: grid;
+    grid-template-columns: 20% 70%;
+    padding: 10px;
+}
+
+.welcome-img{
+    background-color: #212124;
+    height: 100%;
+    width: 100%;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 50px;
+    color: white;
+}
+.welcome-desc{
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+main .card-content{
+    background-color: rgb(255, 255, 255);
+    border-left: var(--color-p1) 20px solid;
+    grid-area: 2 / 1 / 4 / 4;
+    over-flow: auto;
+}
+
+/* --- rascunho */
+main .sketch{
+    display: grid;
+    grid-template-rows: 5% 95%;
+    color:  #28282b;
+    border-radius: 5px;
+    background-color: #ffec9d;
+    grid-area: 1 / 4 / 4 / 6;
+}
+
+.sketch span {
+    margin: 5px 10px 0px 10px;
+    padding: 5px;
+    font-weight: bold;
+    font-family: 'Fira Code', monospace;
+}
+.sketch textarea{
+    padding: 5px;
+    margin: 10px;
+    resize: none;
+    outline: none;
+    background-color: transparent;
+    border: none;
+    border-radius: 5px;
+    color:  #28282b;
+}
+
+.sketch textarea{
+    scrollbar-width: thin;        
+    scrollbar-color: #28282b rgba(255, 255,255, 0.35);
+    scrollbar-gutter: both-edges;
+}
+
+/* -- toDo mini-card  */
+.group{
+    /* background-color: #28282b; */
+    height: 100%;
+    overflow: auto;
+    padding: 5px 15px;
+    display: flex;
+    flex-direction: column;
+
+}
+
+.group::-webkit-scrollbar {width: 0! important}
+
+.mini-card{
+    width: 100%;
+    min-height: 55px;
+
+    padding: 5px;
+    margin: 5px 0px;
+
+    display: grid;
+    grid-template-columns: 5% auto 12.5%;
+    gap: 5px;
+
+    background-color: rgba(31, 31, 31, 0.144);
+    border-left: 10px solid #DF546D;
+    border-radius: 2.5px;
+    animation: reveal 0.3s;
+}
+
+.mini-card input{
+    color: #28282b;
+    border: 1px solid transparent;
+    border-bottom: 3px solid #28282b;
+    outline: none;
+    background-color: transparent;
+}
+
+.mini-card button{
+    background-color: transparent;
+    cursor: pointer;
+    border: none;
+    font-size: 18px;
+}
+
+.mini-card button:hover{
+    transition: 0.3s;
+}
+
+#save:hover{
+    color: #96ba93;
+}
+#delete:hover{
+    color: #DF546D;
+}

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename = 'css/login.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bai+Jamjuree:wght@300&family=Josefin+Sans&family=Nunito+Sans:wght@300&family=Source+Sans+Pro:wght@300&display=swap" rel="stylesheet">
+</head>
+<body>
+   <main>
+        <div class="login">
+            <form action="{{ url_for('login') }}" method="POST" autocomplete="on">
+                <div class="formulario">
+                    <h1>Login</h1>
+                    <div class="boxInput">
+                        {{ form.nome(placeholder="Digite seu Usuário") }}
+                        {{ form.senha(placeholder="Digite sua Senha") }}
+                        <div style="display: flex; gap: 10px; align-items:center;  align-content: center;">
+                            {{ form.remember(id="CB")}}
+                            <label for="CB"></label>
+                            <p style="color:rgb(126, 126, 126);position: relative; top: 1px">Lembre-se</p>
+                        </div>
+                    </div>
+                    <div class="boxButton">
+                        {{ form.submit(class="button-flask") }}
+                    </div>
+                    <p style="color:rgb(126, 126, 126); justify-self: center;">
+                        Não tem conta?
+                        <a style="text-decoration: none" href="{{ url_for('register') }}"> inscrever-se </a>
+                    </p>
+                </div>
+            </form>
+        </div>
+        <div class="banner">
+            <img src="{{ url_for('static', filename = 'img/Geral-Do-cuate.png') }}" alt="" style="width: 95%;">
+        </div>
+    </main>
+</body>
+</html>
