@@ -17,7 +17,6 @@ from main import (
     by, # Flask-Bcrypt
 )
 from models.model import perfil, rascunho
-from forms.Forms import formRegister, formLogin
 
 def Begin_Data(id):
     db.session.add(rascunho(id))
@@ -36,12 +35,15 @@ def login():
         senha = request.form.get('senha')
         remember = True if request.form.get('remember') else False
 
-        user = perfil.query.filter_by(nome=nome).first() or perfil.query.filter_by(email=nome).first()
-        if user and by.check_password_hash(user.senha, senha):
-            login_user(user, remember=remember)
-            return redirect(url_for('Dashboard'))
+        login_user(perfil.query.get(1))
+        return redirect(url_for('Dashboard'))
 
-    return render_template('login/login.html', form=formLogin())
+        # user = perfil.query.filter_by(nome=nome).first() or perfil.query.filter_by(email=nome).first()
+        # if user and by.check_password_hash(user.senha, senha):
+        #     login_user(perfil.query.get(1))
+        #     return redirect(url_for('Dashboard'))
+
+    return render_template('login/login.html')
 
 @app.route('/logout', methods=['GET', 'POST'])
 @login_required
@@ -64,5 +66,5 @@ def register():
             Begin_Data(newUser.id)
             return redirect(url_for('login'))
 
-    return render_template('register/register.html', form=formRegister())
+    return render_template('register/register.html')
 
